@@ -34,7 +34,7 @@ class Ticket extends REST_Controller {
             'qty'                        => $this->post('qty'),
             'price'                      => $this->post('price')
         );
-        $insert = $this->db->insert('category', $data);
+        $insert = $this->db->insert('ticket', $data);
         if ($insert) {
             $this->response($data, 200);
         } else {
@@ -45,7 +45,7 @@ class Ticket extends REST_Controller {
     //Memperbarui data kontak yang telah ada
     function index_put()
     {
-        $id = $this->put('id_user');
+        $id = $this->put('id_ticket');
         $data = array(
             'id_ticket'                  => $this->put('id_ticket'),
             'fest_name'                  => $this->put('fest_name'),

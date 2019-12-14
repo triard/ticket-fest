@@ -65,7 +65,7 @@ class Transaction extends REST_Controller {
     {
         $id = $this->delete('id_trans');
         $this->db->where('id_trans', $id);
-        $delete = $this->db->delete('trans');
+        $delete = $this->db->delete('transaction');
         if ($delete) {
             $this->response(array('status' => 'success'), 201);
         } else {

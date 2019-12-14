@@ -43,7 +43,7 @@ class Category extends REST_Controller {
     //Memperbarui data kontak yang telah ada
     function index_put()
     {
-        $id = $this->put('id_user');
+        $id = $this->put('id_category');
         $data = array(
             'id_category'           => $this->put('id_category'),
             'name'                  => $this->put('name'),
