@@ -34,6 +34,8 @@
                                 <th>Category</th>
                                 <th>qty</th>
                                 <th>Price</th>
+                                <th>Images</th>
+                                <th>Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,6 +47,10 @@
                                     <td><?php echo $rows->category; ?></td>
                                     <td><?php echo $rows->qty; ?></td>
                                     <td><?php echo $rows->price; ?></td>
+                                    <td>
+                                            <img src="<?php echo base_url('./upload/product/' . $rows->images) ?>" width="64" />
+                                    </td>
+                                    <td><?php echo $rows->date; ?></td>
                                     <td>
                                         <a href="<?php echo site_url(); ?>TicketClient/put/<?php echo $rows->id_ticket; ?>">Update</a>
                                         <a href="<?php echo site_url(); ?>TicketClient/delete/<?php echo $rows->id_ticket; ?>">Hapus</a>

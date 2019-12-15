@@ -38,9 +38,12 @@ class TicketClient extends CI_Controller
             'fest_name'         => $this->input->post('fest_name'),
             'category'          => $this->input->post('category'),
             'qty'               => $this->input->post('qty'),
-            'price'             => $this->input->post('price')
+            'price'             => $this->input->post('price'),
+            'images'             => $this->input->post('images'),
+            'date'              => $this->input->post('date')
         );
         $insert =  $this->curl->simple_post($this->API, $data);
+        var_dump($insert);die;
         if ($insert) {
             $this->session->set_flashdata('result', 'Data Menu Berhasil Ditambahkan');
         } else {
@@ -64,7 +67,9 @@ class TicketClient extends CI_Controller
             'fest_name'         => $this->input->post('fest_name'),
             'category'          => $this->input->post('category'),
             'qty'               => $this->input->post('qty'),
-            'price'             => $this->input->post('price')
+            'price'             => $this->input->post('price'),
+            'images'             => $this->input->post('images'),
+            'date'              => $this->input->post('date')
         );
         $update =  $this->curl->simple_put($this->API, $data, array(CURLOPT_BUFFERSIZE => 10));
         // var_dump($update);die; 

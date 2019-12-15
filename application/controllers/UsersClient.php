@@ -40,10 +40,10 @@ class UsersClient extends CI_Controller
                 'password'          => $this->input->post('password'),
                 'email'             => $this->input->post('email'),
                 'addres'            => $this->input->post('addres'),
-                'telephone'         => $this->input->post('telephone')
+                'telephone'         => $this->input->post('telephone'),
+                'level'             => $this->input->post('level')
             );
         $insert =  $this->curl->simple_post($this->API, $data);
-        
         if ($insert) {
             $this->session->set_flashdata('result', 'Data Menu Berhasil Ditambahkan');
         } else {
@@ -69,7 +69,8 @@ class UsersClient extends CI_Controller
             'password'          => $this->input->post('password'),
             'email'             => $this->input->post('email'),
             'addres'            => $this->input->post('addres'),
-            'telephone'         => $this->input->post('telephone')
+            'telephone'         => $this->input->post('telephone'),
+            'level'         => $this->post('level')
         );
         $update =  $this->curl->simple_put($this->API, $data, array(CURLOPT_BUFFERSIZE => 10));
         // var_dump($update);die; 
@@ -94,4 +95,15 @@ class UsersClient extends CI_Controller
         }
         redirect('UsersClient');
     }
+
+
+    public function getProductsByCategory($id)
+        {
+            $this->db->select('ticket.*, categories.name as nm');
+            $this->db->join('category', 'product.id_categories = categories.id_categories');
+            return $this->db->get_where('product', array('product.id_categories' => $id))->result();
+        }
+
+     
+
 }

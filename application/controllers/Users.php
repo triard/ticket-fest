@@ -34,7 +34,8 @@ class Users extends REST_Controller {
             'password'          => $this->post('password'),
             'email'             => $this->post('email'),
             'addres'            => $this->post('addres'),
-            'telephone'         => $this->post('telephone')
+            'telephone'         => $this->post('telephone'),
+            'level'         => $this->post('level')
         );
         $insert = $this->db->insert('users', $data);
         if ($insert) {
@@ -55,7 +56,8 @@ class Users extends REST_Controller {
             'password'          => $this->put('password'),
             'email'             => $this->put('email'),
             'addres'            => $this->put('addres'),
-            'telephone'         => $this->put('telephone')
+            'telephone'         => $this->put('telephone'),
+            'level'         => $this->put('level')
         );
         $this->db->where('id_user', $id);
         $update = $this->db->update('users', $data);

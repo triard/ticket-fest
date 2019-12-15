@@ -23,20 +23,33 @@
                     <form action="<?php echo site_url(); ?>TicketClient/put_process" class="needs-validation" method="POST" onload="setSelectBoxByText()">
                         <?php foreach ($ticket as $rows) : ?>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="id_ticket" placeholder="ID Menu" value="<?php echo $rows->id_ticket; ?>" name="id_ticket" required>
+                                <input type="text" class="form-control" id="id_ticket" placeholder="ID ticket" value="<?php echo $rows->id_ticket; ?>" name="id_ticket" required>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="fest_name" placeholder="name" value="<?php echo $rows->fest_name; ?>" name="fest_name" required>
                             </div>
+                            <div class="form-item">
+                                                <label for="category">Category</label>
+                                                <select id="category" name="category" class="form-input" required>
+                                                    <option selected>value="<?php echo $rows->category; ?>"</option>
+                                                        <option value="Rock">Rock</option>
+                                                        <option value="Jazz">Jazz</option>
+                                                        <option value="Folk">Folk</option>
+                                                        <option value="Pop">Pop</option>
+                                                </select>
+                         </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="category" placeholder="Nama caategory" value="<?php echo $rows->category; ?>" name="category" required>
+                                <input type="text" class="form-control" id="qty" placeholder="quantity" value="<?php echo $rows->qty; ?>" name="qty" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="qty" placeholder="desc" value="<?php echo $rows->qty; ?>" name="qty" required>
+                                <input type="text" class="form-control" id="price" placeholder="price" value="<?php echo $rows->price; ?>" name="price" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="price" placeholder="desc" value="<?php echo $rows->price; ?>" name="price" required>
-                            </div>
+                            <input type="file" class="form-control" id="images" placeholder="images" name="images" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="date" placeholder="date" name="date" required>
+                        </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
